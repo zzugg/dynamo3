@@ -215,6 +215,8 @@ class DynamoDBConnection(object):
                 return None
             else:  # pragma: no cover
                 raise
+        except KeyError as e:
+            return None
 
     def create_table(self, tablename, hash_key, range_key=None,
                      indexes=None, global_indexes=None, throughput=None):
